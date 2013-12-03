@@ -16,8 +16,8 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
 
-import org.easymock.classextension.EasyMock;
-import org.easymock.classextension.IMocksControl;
+import org.easymock.EasyMock;
+import org.easymock.IMocksControl;
 import org.junit.Test;
 
 import com.sdm.chat.adaemon.AUser;

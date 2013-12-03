@@ -6,8 +6,6 @@ of SEAN D. MURRAY.
 ***********************************************************/
 package com.sdm.chat.adaemon;
 
-import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,6 +13,9 @@ import com.sdm.chat.adaemon.ACommand;
 import com.sdm.chat.daemon.Command;
 import com.sdm.chat.daemon.Command.Tag;
 import com.sdm.util.Pair;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class ACommandTest {
 
@@ -29,8 +30,8 @@ public class ACommandTest {
   public void testIvalidCmd() {
     String invalidCmd = "/some invalid command here";
     Pair<Tag, String> parsedCmd = this.cmds.parse(invalidCmd);
-    Assert.assertEquals(Command.Tag.INVALID, parsedCmd.getFirst());
-    Assert.assertNull(parsedCmd.getSecond());
+    assertEquals(Command.Tag.INVALID, parsedCmd.getFirst());
+    assertNull(parsedCmd.getSecond());
   }
 
   @Test
@@ -64,7 +65,7 @@ public class ACommandTest {
       Tag expectedTag) {
     String cmd = prefix + statement;
     Pair<Tag, String> parsedCmd = this.cmds.parse(cmd);
-    Assert.assertEquals(expectedTag, parsedCmd.getFirst());
-    Assert.assertEquals(statement, parsedCmd.getSecond());
+    assertEquals(expectedTag, parsedCmd.getFirst());
+    assertEquals(statement, parsedCmd.getSecond());
   }
 }
